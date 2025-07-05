@@ -38,12 +38,10 @@ Gravity Loss - это динамичный 2D платформер, реализ
 
 ```
 Отображение текущей реальности отображается на краях экрана -
+```
 ![image](https://github.com/user-attachments/assets/327b7bfd-674c-4396-8924-2e5a9367bb28)
 
 ![image](https://github.com/user-attachments/assets/2de3533f-70f4-4666-aeeb-1b4082f7db74)
-
-
-```
 ## Демонстрация геймплея
 https://github.com/user-attachments/assets/c63260f9-7e90-45d8-9d02-c0f6647d3ff2
 
