@@ -23,9 +23,9 @@ Gravity Loss - это динамичный 2D платформер, реализ
 
 ## Введение в игру
 ```
-Персонаж - 
-![image](https://github.com/user-attachments/assets/6e79b9b9-29c3-43bb-8ff7-2b2a8bfdabd6)
+Персонаж под контролем игрока - 
 ```
+![image](https://github.com/user-attachments/assets/6e79b9b9-29c3-43bb-8ff7-2b2a8bfdabd6)
 ```
 Враги (активные/спящие) -
 
