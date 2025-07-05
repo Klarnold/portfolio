@@ -21,7 +21,7 @@
 Для рестарта - на **кнопку рестарт (5)** соответственно. 
 Выход в меню осуществляется через кнопку **меню в правой части экрана (6)**
 
-![ScetchRushTutorial](https://github.com/user-attachments/assets/3d1900c0-169c-4e53-8236-23c5ecb1cb0f)
+![ScetchRushTutorial](https://github.com/user-attachments/assets/743ae632-3ceb-4d3d-a4cb-06dbd9bdc9a1)
 
 **Цель - дойти до домика в конце карты.**
 Также пользователь помежт перемещаться по игровому полю, используя ЛКМ/LMB.
