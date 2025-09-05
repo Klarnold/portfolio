@@ -1,0 +1,12 @@
+CollisionShape3D
+StaticBody3D
+Sprite3D
+RigidBody3D
+SpotLight3D
+OmniLight3D
+WorldEnvironment
+DirectionalLight3D
+Camera3D
+Node3D
+CharacterBody3D
+CSGBox3D

@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl1b7wdi8df0t"]
+
+[ext_resource type="Script" uid="uid://p227rmdwe8q2" path="res://lessons/game.gd" id="1_4o7yg"]
+[ext_resource type="PackedScene" uid="uid://dve880vg770sh" path="res://lessons/player_3d.tscn" id="1_b2m5v"]
+[ext_resource type="Texture2D" uid="uid://brbtohct73mlt" path="res://assets/level/checkboard.png" id="2_gkp25"]
+[ext_resource type="Texture2D" uid="uid://87efvda11uwl" path="res://assets/icons/hit_box_3d.svg" id="4_gkp25"]
+[ext_resource type="Script" uid="uid://clfspo4wsouij" path="res://lessons/rigid_body_3d.gd" id="4_sepuf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sepuf"]
+albedo_color = Color(0.821789, 0.821789, 0.821789, 1)
+albedo_texture = ExtResource("2_gkp25")
+roughness = 0.3
+uv1_triplanar = true
+
+[sub_resource type="Environment" id="Environment_b2m5v"]
+background_mode = 1
+background_color = Color(0.180005, 0.180005, 0.180005, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.458405, 0.458405, 0.458405, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 1.3
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.0926141, 0.104746, 0.12382, 1)
+fog_density = 0.0
+fog_sky_affect = 0.391
+fog_height = -2.3
+fog_height_density = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sepuf"]
+bounce = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_48faf"]
+radius = 0.194
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sepuf"]
+size = Vector3(3, 1, 4)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_4o7yg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+use_collision = true
+size = Vector3(20, 8, 20)
+material = SubResource("StandardMaterial3D_sepuf")
+
+[node name="Player3D" parent="." instance=ExtResource("1_b2m5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3, 0)
+motion_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.7, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.683013, 0.37059, -0.62941, 0.258819, 0.683013, 0.683013, 0.683013, -0.629409, 0.370591, 0, 5, 12)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 40.0
+directional_shadow_pancake_size = 139.6
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b2m5v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, 0)
+physics_material_override = SubResource("PhysicsMaterial_sepuf")
+script = ExtResource("4_sepuf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_48faf")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
+texture = ExtResource("4_gkp25")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1927, 2.99991, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -3, 0)
+shape = SubResource("BoxShape3D_sepuf")
